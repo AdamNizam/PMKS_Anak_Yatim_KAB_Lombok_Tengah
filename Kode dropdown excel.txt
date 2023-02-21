@@ -1,0 +1,10 @@
+Private Sub Worksheet_Change(ByVal Target As Range)
+'Updateby Extendoffice
+    selectedNa = Target.Value
+    If Target.Column = 5 Then
+        selectedNum = Application.VLookup(selectedNa, ActiveSheet.Range("dropdown"), 2, False)
+        If Not IsError(selectedNum) Then
+            Target.Value = selectedNum
+        End If
+    End If
+End Sub
